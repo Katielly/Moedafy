@@ -2,8 +2,9 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
+import { Colors, colorsTheme } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,8 +12,24 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        tabBarActiveTintColor: colorsTheme.primary,
+        tabBarStyle: {
+          backgroundColor: colorsTheme.black
+        } ,
+        headerShown: true,
+        headerTitleAlign: 'left',
+        headerTitle: 'Coins',
+        headerTintColor: colorsTheme.primary,
+        headerStyle: {
+          backgroundColor: colorsTheme.black
+        },
+        headerLeft: () => (
+          <Ionicons
+            name="logo-bitcoin"
+            size={25}
+            color={colorsTheme.primary}            
+          />
+        ),
       }}>
       <Tabs.Screen
         name="index"
