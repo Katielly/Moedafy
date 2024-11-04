@@ -2,28 +2,25 @@ import { colorsTheme } from "@/constants/Colors";
 import { Button, StyleSheet, View } from "react-native";
 import { Card, Props, Text } from "react-native-paper";
 
-export function CardCoins() {
+export const CardCoins = (props: IFavor) =>  {
     return (
         <Card style={styles.card}>
-        
-        <Card.Title title="Titulo" />
+        <Card.Title title={props.title} />
         <Card.Content>
-          <Text>TEstes descricao le bu jdskjdks sfisdfjid neuwh kl fsdfsdfkl j4  s purpd sudbfuisbdkfsd oansl lkjdfd sjskd iusbjdn tton sfosidfjsfl nm lskfnlisd nlskndfsldkn ioewhofiwen sjdksfdbkjds suksbfskj</Text>
+          <Text>{props.description}</Text>
         </Card.Content>
-
         <Card.Actions style={styles.cardActions}>
           <View style={styles.viewActions}>
-            <Text>R$ 11,32</Text>
+            <Text>R$ {props.value}</Text>
 
             <Button
-              onPress={() => console.log("test")}
+              onPress={() => console.log("aceitando favor")}
               title="Aceitar"
               color={colorsTheme.black}
-              accessibilityLabel="Learn more about thi"
+              accessibilityLabel="favor accept"
             />
           </View>
         </Card.Actions>
-
       </Card>
     );
 }
@@ -32,13 +29,16 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: colorsTheme.secondary,
     borderColor: colorsTheme.black,
-    borderRadius: 10
+    borderRadius: 10,
+    margin: 15,
+  },
+  cardTitle: {
+    fontSize: 20,
   },
   viewActions: {
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'space-between'
-     
   },
   cardActions: {
     paddingTop: 25
