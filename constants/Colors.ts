@@ -28,5 +28,6 @@ export const Colors = {
 export const colorsTheme = {
   primary: '#facc15',
   secondary: '#fef08a',
+  ternary: '#f7f3d5',
   black: '#000000',
 };
