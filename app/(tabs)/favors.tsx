@@ -5,9 +5,9 @@ import { Historical } from '@/components/Historical';
 
 export default function TabTwoScreen() {
   const historicalAdmin : InfosTransf[] = [
-    { date: '02/04/2024', amountPay: 45, description: 'levar as mudanças'},
-    { date: '03/04/2024', amountPay: 75, description: 'levar as mudanças2'},
-    { date: '07/04/2024', amountPay: 175, description: 'levar as mudanças3'}
+    { date: '02/04/2024', amountPay: 45, history: 'levar as mudanças', typeTransition: 'credit'},
+    { date: '03/04/2024', amountPay: 75, history: 'levar as mudanças2', typeTransition: 'debit'},
+    { date: '07/04/2024', amountPay: 175, history: 'levar as mudanças3', typeTransition: 'debit'}
   ]
 
   return (
@@ -19,7 +19,8 @@ export default function TabTwoScreen() {
             <Historical
               key={item.date}
               date={item.date}
-              description={item.description}
+              history={item.history}
+              typeTransition={item.typeTransition}
               amountPay={item.amountPay}
             />
           ))

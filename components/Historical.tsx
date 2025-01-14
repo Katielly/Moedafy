@@ -4,13 +4,20 @@ import { View, Text, StyleSheet } from 'react-native';
 export type InfosTransf = {
     amountPay: number,
     date: string,
-    description: string
+    history: string,
+    typeTransition: string
 }
 
-export function Historical({amountPay, date, description}: InfosTransf) {
+export function Historical({typeTransition, amountPay, date, history}: InfosTransf) {
+    const valueFormated = `${typeTransition == 'credit' ? '-' : '+' } ${amountPay}`
+
     return (
         <View style={styles.container}>
-            <Text style={styles.description}>{description}</Text>
+            <View style={styles.topdescription}>
+                <Text style={styles.description}>R$ {amountPay}</Text>
+                <Text>{date}</Text>
+            </View>
+            <Text>{history}</Text>
         </View>
     )
 }
@@ -25,6 +32,10 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 14
-
+    },
+    topdescription: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginRight: 10
     }
 })

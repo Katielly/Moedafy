@@ -26,7 +26,6 @@ export function Input({ label, value, placeholder, textContentType = 'name' }: P
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         gap: 4,
         paddingBottom: 6
     },
